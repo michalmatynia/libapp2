@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 /*
+
+TEST
        <Link href="/">
 Bookwise
 { <Image src="/icons/logo.svg" alt="logo" width={40} height={40} /> }

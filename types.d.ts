@@ -3,8 +3,8 @@ interface Book {
   author: string;
   genre: string;
   rating: number;
-  totalCopies: string;
-  availableCopies: string;
+  totalCopies: number;
+  availableCopies: number;
   description: string;
   coverColor: string;
   coverUrl: string;

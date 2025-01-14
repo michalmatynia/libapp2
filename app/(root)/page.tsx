@@ -11,7 +11,13 @@ import { sampleBooks } from "@/constans";
 
 const Home = async () => (
   <>
-    <BookOverview {...sampleBooks[0]} />
+    <BookOverview
+      {...{
+        ...sampleBooks[0],
+      }}
+      userId={1}
+      video="sampleVideoUrl"
+    />
     <BookList
       title="Latest Books"
       books={sampleBooks}

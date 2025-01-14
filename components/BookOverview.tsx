@@ -4,16 +4,17 @@ import BookCover from "@/components/BookCover";
 import { Button } from "./ui/button";
 
 interface Props extends Book {
-  userId: string;
+  userId: number;
+  video: string;
 }
 const BookOverview = async ({
   title,
   author,
   genre,
   rating,
+  description,
   totalCopies,
   availableCopies,
-  description,
   coverColor,
   coverUrl,
   userId,
@@ -50,7 +51,7 @@ const BookOverview = async ({
         </div>
 
         <p className="book-description">{description}</p>
-        {/* <Button className="book-overview_btn" style={{ backgroundColor: "#FFD700" }}> */}
+        {/* Here the colors are not applied properly, I mean they are good, but it seems that the colors should have been different */}
         <Button className="book-overview_btn">
           <Image src="/icons/book.svg" alt="book" width={20} height={20} />
           <p className="font-bebas-neue text-xl text-dark-100">Borrow</p>
@@ -63,14 +64,14 @@ const BookOverview = async ({
             variant="wide"
             className="z-10"
             coverColor={coverColor}
-            coverImage={coverUrl}
+            coverUrl={coverUrl}
           />
 
           <div className="absolute left-16 top-10 rotate-12 opacity-40 max-sm:hidden">
             <BookCover
               variant="wide"
               coverColor={coverColor}
-              coverImage={coverUrl}
+              coverUrl={coverUrl}
             />
           </div>
         </div>

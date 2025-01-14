@@ -160,7 +160,7 @@
   }
 
   .book-copies p span {
-    @apply ml-2 font-semibold text-primary;
+    @apply ml-2 font-semibold text-light-200 ;
   }
 
   .book-description {

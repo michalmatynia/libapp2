@@ -25,7 +25,7 @@ import Link from "next/link";
 import { FIELD_NAMES, FIELD_TYPES } from "@/constans";
 import FileUpload from "@/components/FileUpload";
 import ImageUpload from "@/components/ImageUpload";
-// import { toast } from "@/hooks/use-toast";
+import { toast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
 
 interface Props<T extends FieldValues> {
@@ -53,22 +53,22 @@ const AuthForm = <T extends FieldValues>({
   const handleSubmit: SubmitHandler<T> = async (data) => {
     const result = await onSubmit(data);
 
-    // if (result.success) {
-    //   toast({
-    //     title: "Success",
-    //     description: isSignIn
-    //       ? "You have successfully signed in."
-    //       : "You have successfully signed up.",
-    //   });
+    if (result.success) {
+      toast({
+        title: "Success",
+        description: isSignIn
+          ? "You have successfully signed in."
+          : "You have successfully signed up.",
+      });
 
-    //   router.push("/");
-    // } else {
-    //   toast({
-    //     title: `Error ${isSignIn ? "signing in" : "signing up"}`,
-    //     description: result.error ?? "An error occurred.",
-    //     variant: "destructive",
-    //   });
-    // }
+      router.push("/");
+    } else {
+      toast({
+        title: `Error ${isSignIn ? "signing in" : "signing up"}`,
+        description: result.error ?? "An error occurred.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -98,16 +98,15 @@ const AuthForm = <T extends FieldValues>({
                   </FormLabel>
                   <FormControl>
                     {field.name === "universityCard" ? (
-                      <ImageUpload onFileChange={field.onChange} />
+                      <FileUpload
+                        type="image"
+                        accept="image/*"
+                        placeholder="Upload your ID"
+                        folder="ids"
+                        variant="dark"
+                        onFileChange={field.onChange}
+                      />
                     ) : (
-                      //   <FileUpload
-                      //   // type="image"
-                      //   // accept="image/*"
-                      //   // placeholder="Upload your ID"
-                      //   // folder="ids"
-                      //   // variant="dark"
-                      //   // onFileChange={field.onChange}
-                      //   />
                       <Input
                         required
                         type={

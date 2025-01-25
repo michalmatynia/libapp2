@@ -6,6 +6,9 @@ npx shadcn@latest add form
 
 Imagekit - Mlokos16
 
+SHADCN
+https://ui.shadcn.com/docs/components/accordion
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

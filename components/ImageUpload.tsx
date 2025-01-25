@@ -11,6 +11,7 @@ import config from "@/lib/config";
 import ImageKit from "imagekit";
 import { useRef, useState } from "react";
 import Image from "next/image";
+import { toast } from "@/hooks/use-toast";
 
 const {
   env: {
@@ -49,10 +50,21 @@ const ImageUpload = ({
 
   const onError = (error: any) => {
     console.log(error);
+
+    toast({
+      title: "Image uploade failed",
+      description: `Your image could not be upoaded. Please try again.`,
+      variant: "destructive",
+    });
   };
   const onSuccess = (res: any) => {
     setFile(res);
     onFileChange(res.filePath);
+
+    toast({
+      title: "Success",
+      description: `${res.filePath} uploaded successfully.`,
+    });
   };
 
   return (
